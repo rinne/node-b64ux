@@ -1,6 +1,6 @@
 {
 	"name": "b64ux",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Extended and compatible BASE64URL encoder and decoder",
 	"main": "b64ux.js",
 	"scripts": {
