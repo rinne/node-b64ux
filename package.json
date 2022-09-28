@@ -1,11 +1,33 @@
 {
-  "name": "b64ux",
-  "version": "1.0.0",
-  "description": "Extended and compatible BASE64URL encoder and decoder",
-  "main": "b64ux.js",
-  "scripts": {
-    "test": "node ./test/test.js"
-  },
-  "author": "Timo J. Rinne",
-  "license": "MIT"
+	"name": "b64ux",
+	"version": "1.0.1",
+	"description": "Extended and compatible BASE64URL encoder and decoder",
+	"main": "b64ux.js",
+	"scripts": {
+		"test": "node ./test/test.js"
+	},
+	"engines": {
+		"node": ">=4.2.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rinne/node-b64ux.git"
+	},
+	"keywords": [
+		"base64",
+		"base64url",
+		"nodejs",
+		"react",
+		"react-native"
+	],
+	"author": {
+		"name": "Timo J. Rinne",
+		"email": "tri@iki.fi",
+		"url": "https://github.com/rinne/"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rinne/node-b64ux/issues"
+	},
+	"homepage": "https://github.com/rinne/node-b64ux#readme"
 }
