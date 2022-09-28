@@ -1,0 +1,11 @@
+{
+  "name": "b64ux",
+  "version": "1.0.0",
+  "description": "Extended and compatible BASE64URL encoder and decoder",
+  "main": "b64ux.js",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "author": "Timo J. Rinne",
+  "license": "MIT"
+}
