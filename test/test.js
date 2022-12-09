@@ -4,6 +4,17 @@ const assert = require('assert');
 
 const b64ux = require('../b64ux.js');
 
+const tv = [
+	{ r: '', b: '' },
+	{ r: 'f', b: 'Zg' },
+	{ r: 'fo', b: 'Zm8' },
+	{ r: 'foo', b: 'Zm9v' },
+	{ r: 'foob', b: 'Zm9vYg' },
+	{ r: 'fooba', b: 'Zm9vYmE' },
+	{ r: 'foobar', b: 'Zm9vYmFy' },
+	{ r: '1000€ ja häppää päälle!', b: 'MTAwMOKCrCBqYSBow6RwcMOkw6QgcMOkw6RsbGUh' }
+];
+
 function rs() {
 	let r = '';
 	let l = Math.floor(Math.random() * 100);
@@ -49,6 +60,10 @@ function cmp(a, b) {
 			assert(cmp(b64ux.decode(b64ux.encode(h, 'hex'), 'hex'), h));
 			let a = ra();
 			assert(cmp(b64ux.decode(b64ux.encode(a), 'array'), a));
+		}
+		for (let i = 0; i < tv.length; i++) {
+			assert(cmp(b64ux.encode(tv[i].r), tv[i].b));
+			assert(cmp(b64ux.decode(tv[i].b), tv[i].r));
 		}
 	} catch(e) {
 		console.log(e);
