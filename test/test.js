@@ -12,7 +12,10 @@ const tv = [
 	{ r: 'foob', b: 'Zm9vYg' },
 	{ r: 'fooba', b: 'Zm9vYmE' },
 	{ r: 'foobar', b: 'Zm9vYmFy' },
-	{ r: '1000€ ja häppää päälle!', b: 'MTAwMOKCrCBqYSBow6RwcMOkw6QgcMOkw6RsbGUh' }
+	{ r: '1000€ ja häppää päälle!', b: 'MTAwMOKCrCBqYSBow6RwcMOkw6QgcMOkw6RsbGUh' },
+	{ r: 'κόσμε', b: 'zrrhvbnPg868zrU' },
+	{ r: 'ࠀ', b: '4KCA' },
+	{ r: String.fromCharCode(0xffff), b: '77-_' }
 ];
 
 function rs() {
@@ -20,6 +23,15 @@ function rs() {
 	let l = Math.floor(Math.random() * 100);
 	while (r.length < l) {
 		r += String.fromCharCode(Math.floor(Math.random() * 256));
+	}
+	return r;
+}
+
+function rus() {
+	let r = '';
+	let l = Math.floor(Math.random() * 100);
+	while (r.length < l) {
+		r += String.fromCharCode(Math.floor(Math.random() * 65536));
 	}
 	return r;
 }
@@ -56,6 +68,8 @@ function cmp(a, b) {
 		for (let i = 0; i < 10000; i++) {
 			let s = rs();
 			assert(cmp(b64ux.decode(b64ux.encode(s)), s));
+			let m = rus();
+			assert(cmp(b64ux.decode(b64ux.encode(m)), m));
 			let h = rh();
 			assert(cmp(b64ux.decode(b64ux.encode(h, 'hex'), 'hex'), h));
 			let a = ra();
@@ -70,3 +84,4 @@ function cmp(a, b) {
 		process.exit(1);
 	}
 })();
+

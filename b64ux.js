@@ -10,29 +10,7 @@ const d = { 'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6,'H':7,'I':8,'J':9,
 			'y':50,'z':51,'0':52,'1':53,'2':54,'3':55,'4':56,'5':57,'6':58,'7':59,
 			'8':60,'9':61,'-':62,'_':63 };
 
-var encodeUtf8, decodeUtf8;
-{
-	let tenc = (typeof(TextEncoder) !== 'undefined') ? (new TextEncoder('utf-8')) : undefined;
-	if (tenc) {
-		encodeUtf8 = function (s) {
-			return tenc.encode(s);
-		}
-	} else {
-		throw new Error('TextEncoder not supported');
-	}
-
-	let tdec = (typeof(TextEncoder) !== 'undefined') ? (new TextDecoder('utf-8')) : undefined;
-	if (tdec) {
-		decodeUtf8 = function (a) {
-			if (! (a instanceof Uint8Array)) {
-				a = Uint8Array.from(a);
-			}
-			return tdec.decode(a);
-		}
-	} else {
-		throw new Error('TextDecoder not supported');
-	}
-}
+const { encodeUtf8, decodeUtf8 } = require('./ui36');
 
 function stringLookup(s, idx) {
 	if (! ((typeof(s) === 'string') && Number.isSafeInteger(idx) && (idx >= 0) && (idx < s.length))) {
